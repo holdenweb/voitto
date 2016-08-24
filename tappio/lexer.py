@@ -64,11 +64,11 @@ class Token(object):
         value = repr(getattr(self, "value", None))
         return "<Token: {0} {1}>".format(token_type, value)
 
-    def __cmp__(self, other):
+    def __eq__(self, other):
         if isinstance(other, Token):
-            return cmp((self.token_type, self.value), (other.token_type, other.value))
+            return (self.token_type, self.value) == (other.token_type, other.value)
         elif (isinstance(other, list) or isinstance(other, tuple)) and len(other) == 2:
-            return cmp((self.token_type, self.value), other)
+            return (self.token_type, self.value) == tuple(other)
         else:
             raise TypeError("cannot compare Token to {0}".format(repr(type(other))))
 
