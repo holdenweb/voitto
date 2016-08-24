@@ -2,6 +2,8 @@
 # encoding: utf-8
 # vim: shiftwidth=4 expandtab
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from tappio import loadf, dumpf
 
 def indent(input_filename=None, output_filename=None):

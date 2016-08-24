@@ -19,6 +19,8 @@
 #
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import date
 
 from .models import Document, Account, Event, Entry
@@ -47,7 +49,7 @@ class Parser(object):
             self.next_token = None
         else:
             try:
-                token = self.token_iterator.next()
+                token = next(self.token_iterator)
             except StopIteration:
                 self.error("end of file while expecting {0}", expected_type)
 
@@ -64,7 +66,7 @@ class Parser(object):
             token = self.next_token
         else:
             try:
-                token = self.token_iterator.next()
+                token = next(self.token_iterator)
                 self.next_token = token
             except StopIteration:
                 token = None

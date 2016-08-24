@@ -20,6 +20,8 @@
 #
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from StringIO import StringIO
 from pkg_resources import load_entry_point
 

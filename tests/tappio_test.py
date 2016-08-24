@@ -20,6 +20,9 @@
 #
 
 
+from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import unicode_literals
 from StringIO import StringIO
 
 from nose.tools import *
@@ -170,9 +173,9 @@ def parser_single(input):
     lex = Lexer()
 
     try:
-        print Parser(lex.lex_string(input)).parse_document()
-    except ParserError, e:
-        print lex.linenum, lex.chnum
+        print(Parser(lex.lex_string(input)).parse_document())
+    except ParserError as e:
+        print(lex.linenum, lex.chnum)
         raise e
 
 

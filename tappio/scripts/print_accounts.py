@@ -3,15 +3,18 @@
 # vim: shiftwidth=4 expandtab
 
 
+from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import unicode_literals
 from tappio import loadf
 
 
 def print_accounts(accounts, indent=0, indent_increment=2):
     for account in accounts:
         if account.number is not None:
-            print "%s%d %s" % (" "*indent, account.number, account.name)
+            print("%s%d %s" % (" "*indent, account.number, account.name))
         else:
-            print "%s%s" % (" "*indent, account.name)
+            print("%s%s" % (" "*indent, account.name))
         print_accounts(account.subaccounts, indent=indent+indent_increment)
 
 

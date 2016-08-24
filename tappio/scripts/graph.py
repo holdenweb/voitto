@@ -5,6 +5,8 @@
 # TODO: Escape stuff
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 import sys
 from contextlib import contextmanager
 

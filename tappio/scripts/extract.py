@@ -2,12 +2,15 @@
 # encoding: utf-8
 # vim: shiftwidth=4 expandtab
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import date, datetime
 
 from tappio import loadf, dumpf
 from tappio.models import Event, Entry
 
 from .print_earnings import collect_earnings
+import six
 
 
 BALANCES_DEFAULT_DESCRIPTION = "Tilinavaukset"
@@ -41,7 +44,7 @@ def balances(document, at_date=None, description=BALANCES_DEFAULT_DESCRIPTION,
     balances = collect_earnings([i for i in document.events if i.date < at_date])
     balance_accounts = get_balance_accounts(document.accounts)
 
-    for account_number, cents in balances.iteritems():
+    for account_number, cents in six.iteritems(balances):
         if account_number in balance_accounts:
             result.entries.append(Entry(account_number=account_number, cents=cents))
 

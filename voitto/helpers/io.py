@@ -24,6 +24,8 @@ I/O related helpers.
 """
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from contextlib import contextmanager
 from sys import stdout
 

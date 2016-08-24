@@ -3,6 +3,8 @@
 # vim: shiftwidth=4 expandtab
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from tappio import loadf, dumpf
 
 

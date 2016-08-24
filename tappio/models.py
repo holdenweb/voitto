@@ -30,6 +30,8 @@ Document 1 --> * Event 1 --> * Entry 1 --> Account
 """
 
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from datetime import date
 
 import voitto

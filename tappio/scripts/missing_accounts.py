@@ -3,8 +3,13 @@
 # vim: shiftwidth=4 expandtab
 
 
+from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import unicode_literals
 from collections import defaultdict
 from tappio import loadf, dumpf
+import six
+from six.moves import map
 
 
 ONLY=True
@@ -33,22 +38,22 @@ def missing_accounts(*input_filenames):
     flat_accounts = dict((filename, flatten_accounts(document.accounts)) for (filename, document) in documents)
 
     all_accounts = dict()
-    map(all_accounts.update, flat_accounts.itervalues())
+    list(map(all_accounts.update, six.itervalues(flat_accounts)))
     
     havity = defaultdict(set)
-    for account_num, account in all_accounts.iteritems():
-        for filename, accounts in flat_accounts.iteritems():
+    for account_num, account in six.iteritems(all_accounts):
+        for filename, accounts in six.iteritems(flat_accounts):
             if account_num in accounts:
                 havity[account_num].add(filename)
 
-    for account_num, filenames in havity.iteritems():
+    for account_num, filenames in six.iteritems(havity):
         fmt_filenames = " ".join(filenames)
 
         if filenames == input_filenames:
             if not ONLY:
-                print "{account_num}: ALL  {fmt_filenames}".format(**locals())
+                print("{account_num}: ALL  {fmt_filenames}".format(**locals()))
         else:
-            print "{account_num}: ONLY {fmt_filenames}".format(**locals())
+            print("{account_num}: ONLY {fmt_filenames}".format(**locals()))
             
 
 def main():

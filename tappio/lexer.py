@@ -22,6 +22,9 @@
 A lexer for the Tappio file format.
 """
 
+from __future__ import unicode_literals
+from __future__ import absolute_import
+from six.moves import range
 TOKENS = (
     'brace_open',
     'brace_close',
@@ -40,7 +43,7 @@ def build_set(*args):
                 s.add(chr(k))
         else:
             for ch in arg:
-                assert type(ch) in (str, unicode)
+                assert type(ch) in (str, str)
                 assert len(ch) == 1
                 s.add(ch)
 
