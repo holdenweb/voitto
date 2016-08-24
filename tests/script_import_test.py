@@ -22,7 +22,7 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
-from StringIO import StringIO
+from io import StringIO
 from pkg_resources import load_entry_point
 
 from nose.tools import *
