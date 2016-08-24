@@ -20,6 +20,7 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
+from .unicode import unicode
 import datetime
 import sys
 
@@ -47,7 +48,7 @@ class Writer(object):
         for token in tokens:
             if self.should_put_space_between(self.prev_token, token):
                 self.stream.write(" ")
-            self.stream.write(str(token))
+            self.stream.write(unicode(token))
 
             self.prev_token = token
 
